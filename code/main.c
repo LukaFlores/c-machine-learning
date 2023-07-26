@@ -57,4 +57,3 @@ int main(){
     printf("w: %f \n", w);
     return 0;
 }
-
