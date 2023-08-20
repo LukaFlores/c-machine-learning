@@ -1,0 +1,124 @@
+
+\documentclass{report}
+
+\input{~/.config/latex_template/preamble.tex}
+\input{~/.config/latex_template/macros.tex}
+\input{~/.config/latex_template/letterfonts.tex}
+
+\title{\Huge{{Machine Learning in C}}}
+\author{\huge{Luka Flores}}
+
+\begin{document}
+
+\maketitle
+\newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+\pdfbookmark[section]{\contentsname}{toc}
+\tableofcontents
+\pagebreak
+
+
+\chapter{Introduction} % (fold)
+\label{chap:Introduction}
+
+\section{Preface} % (fold)
+\label{sec:Preface}
+
+% section Preface (end)
+
+
+
+\section{Defintions} % (fold)
+\label{sec:Defintions}
+
+\subsubsection{Cost or Loss Function} % (fold)
+\label{sec:Cost or Loss Function}
+% subsubsection Cost or Loss Function (end)
+
+
+% section Defintions (end)
+% chapter Introduction (end)
+
+
+
+\chapter{Basic Example of Machine Learning} % (fold)
+\label{chap:Basic Example of Machine Learning}
+
+
+To start we will try to train a model that will correctly predict this set.
+
+\begin{code}[language=c]{Data Set}
+float train[][2] = {
+    {0,0},
+    {1,2},
+    {2,4},
+    {3,6},
+    {4,8},
+    {5,10},
+}
+\end{code}
+
+
+If we think of the left value in each row as the input and the right as the output. The astute would notice a pattern.
+
+\begin{align*}
+    \text{output} &= 2 \times \text{ input} \\
+\end{align*}
+
+We can turn this into a \textbf{ mathematical equation:} 
+\begin{align*}
+    \qquad y &= w x 
+\end{align*}
+
+Where, $w = 2$
+
+
+\subsubsection{Goal:} % (fold)
+\label{sec:Goal:}
+
+Our Goal is the create a model, that will train on the data to find $w$. As a result it will be able to predict future the outputs given an input.
+% subsubsection Goal: (end)
+
+\subsection{Method} % (fold)
+\label{sub:Method}
+
+To train the model we it needs a method for the model to produce numbers, then we will create a lost or cost function (\ref{sec:Cost or Loss Function}) to assess how accurate the model's guess is.
+
+For this simple example we will create a function that makes random guesses
+
+
+
+\begin{code}[language=c]{Random Function in C}
+// rand_float produces a random number between 0 and 1 
+float rand_float(void) {
+    return (float) rand() / (float) RAND_MAX; 
+}
+
+int main(){
+    //srand(time(0)); 
+    srand(12);
+}
+\end{code}
+
+$\verb|srand()|$ is a way to adjust the random see that is used by $\verb|rand()|$. If the value inside $\verb|srand()|$ is constant the seed will remain constant, and therefore then random number will not change every time it is run. To have a changing random number we can use $\verb|time(0)|$ a function that produces the current time.  
+
+
+$\verb|srand(time(0))|$ will consistently produce random seeds which in turn will produce random numbers in $\verb|rand_float()|$
+
+
+In the case of training we will limit the seed to 1 seed so we can provide a constant value within $\verb|srand(12)|$ 12 as an example
+
+
+%%TSODING EP 1 : 20:03
+
+
+
+% subsection Method (end)
+% chapter Basic Example of Machine Learning (end)
+
+
+
+
+
+\end{document}
+
