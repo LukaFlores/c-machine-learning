@@ -1,0 +1,11 @@
+private/
+.DS_Store
+*.log
+*.fls
+*.out
+*.aux
+*.fdb_latexmk
+*.synctex*
+*.listing
+*.toc
+

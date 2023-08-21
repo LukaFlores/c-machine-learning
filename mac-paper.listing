@@ -1,4 +1,0 @@
-float epsilon = 1e-3;
-float dcost = (cost(w + epsilon) - cost(w))/epsilon;
-
-w -= dcost;
